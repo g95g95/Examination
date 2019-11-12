@@ -44,11 +44,6 @@ class Matrix:
 	def Diagonal(self):
 		return np.diag(self.Eigenvalues())
 	
-matrix1 = [[1,2,3],[1,2,3],[1,2,3]]
-matrix2 = [[4,5,6],[4,5,6],[4,5,6]]
-
-m1 = Matrix(3)
-m2 = Matrix(3)
 
 
 
