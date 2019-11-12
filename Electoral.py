@@ -2,6 +2,14 @@ import numpy as np
 Results2018={'Movimento 5 stelle':0.327,'Centrosinistra':0.22,'Centrodestra':0.37,'LeU':0.03}
 ResultsHyp ={'Movimento 5 stelle':0.18,'Centrosinistra':0.20,'Lega':0.35,'Centrodestra':0.15}
 
+def test_max_key(d=Results2018):
+    max_key = ''
+    max_value = 0
+    for key in list(d.keys()):
+        if d[key]>max_value:
+            max_key = key
+            max_value = d[key]
+    assert max_key == 'Centrodestra'
 
 
 
@@ -10,22 +18,15 @@ class Electoral_Simulation:
 	def __init__(self,Results):
 		self.Results = Results
 
-	def test_max_key(d=Results2018):
-    	max_key = ''
-    	max_value = 0
-    	for key in list(d.keys()):
-        	if d[key]>max_value:
-            	max_key = key
-            	max_value = d[key]
-    	assert max_key == 'Centrodestra'
+
     
-	def max_key(d):
+	def max_key(self.Results):
     	max_key = ''
     	max_value = 0
-    	for key in list(d.keys()):
-        	if d[key]>max_value:
+    	for key in list(self.Results.keys()):
+        	if self.Results[key]>max_value:
             	max_key = key
-            	max_value = d[key]    
+            	max_value = self.Results[key]    
     	return max_key    
         
         
