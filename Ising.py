@@ -52,10 +52,10 @@ class Ising:
 		Lattice = [['' for i in range(self.dimension)]for j in range(self.dimension)]			
 		for i in range(self.dimension):
 			for j in range(self.dimension):
-				if self.lattice[i,j]<=0:
+				if self.lattice[i,j]<0:
 					Lattice[i][j]=Label(bg='white',width=2,height=2)
 					Lattice[i][j].grid(row=i,column=j)
-				if self.lattice[i,j]>=0:
+				if self.lattice[i,j]>0:
 					Lattice[i][j]=Label(bg='black',width=2,height=2)
 					Lattice[i][j].grid(row=i,column=j)
 		mainloop()			
@@ -63,9 +63,15 @@ class Ising:
 	def Abs_Tot_Magn(self):
 		return np.abs(2*sum(sum(self.lattice))/(self.dimension*self.dimension))
 	
-	
+	def Tot_Energy(self):
+		Tot_Energy = 0
+		for x in range(self.dimension):
+			for y in range(self.dimension):
+				single_spot_energy = self.lattice[(x+1)%self.dimension,y]+self.lattice[x,(y+1)%self.dimension]+self.lattice[(x-1)%self.dimension,y]+self.lattice[x,(y-1)%self.dimension]
+				Tot_Energy        += single_spot_energy
+		return Tot_Energy/4.		
 				
-	def MontSim (self,Nsteps=1000000):
+	def MontSim (self,Nsteps=100000):
 		for i in range(Nsteps):
 			self.Make_move()
 			
