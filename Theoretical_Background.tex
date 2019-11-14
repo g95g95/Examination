@@ -16,8 +16,27 @@
 
 \begin{document}
 \chapter*{The Ising Model through Montecarlo method}
+\section*{Brief theoric overview of the ferromagnetism and Ising Model}
+An atom in a lattice is of course supposed to make bonds. How will the spins be arranged after? The resulting molecular orbital will thus be bonding or anitbonding; as the name suggests the bonding(where spins allign antisimmetrically) state is the most energtically favoured to create bonds. This happens because of the simmetricity of the radial-total wave function(the total wave function must remain antisimmetric). So what happens in Fe?\\ 
+We know Fe to form bonds with its further shell 4s; the electrons in this shell will combine in order to be arranged in a singlet state since it's the most energetically convenient to form bonds; the orbital 3d also overgoes an exchange interaction but in this case things go differently because the exchange integral(a physical quantity underlying the orbital's overlapping) is positive hence making the triplet state the most energetically favoured. That causes spins to allign parallelly. The single-electron spin exchange hamiltonian(being J the exchange interaction and $S_{i},S_{j}$ the spins) reads like:
+\begin{equation}$$
+	$H_{i}^{exchange} = -2\sum_{i\neq j} J^{Exchange}S_{i}S_{j}$
+	\label{exhcange_hamiltonian}
+$$\end{equation}
+A different approach to understand magnetic behavoiur of solids is to consider particulat microscopit models for magnetic interaction.\ref{exhcange_hamiltonian} can be simplified by simply considering the sum as performed throughout the nearest neighbours. In the Ising models spins are only allowed to point up or down, i.e. we only consider the x component of the spin. The hamiltonian will hence read like :
+\begin{equation}$$
+	$H_{Ising} = -\sum_{nearest neighbours}J S_{i}S_{j}$
+$$\end{equation}
+The code I wrote focused on a 2D dimensional lattice which spins are placed on.The system will undergo a phase-transition from magnetic-reached order to magnetic disorder above a certain crytical temperature $T_{c}$(we suppose to operate in absence of external magnetic field). Once reached the order, the system will tend to remain in the same state since the energetic cost to break the order phase will be too high.\\
 
-\section*{Brief theoric overview of the Ising model and ferromagnetism}
+
+
+
+
+
+
+
+
 \section*{Metropolis algorythm}
 \chapter*{Metropolis algorythm applied to electoral laws}
 
