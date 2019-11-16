@@ -11,21 +11,23 @@ import numpy as np
 import random as rd
 
 
-ising = Ising.Ising(15)
-ising.show_evolution()
+ising = Ising.Ising(20)
+ising.show_evolution()#this shows the graphic evolution of the system at temperature 0.1 K
 
 
 Temperature    = [1.5+(0.025*i)for i in range(60)]
-Magnetizations = [] 
-Energies       = []
+Magnetizations = [] #The array where all magnetization record are stored
+Energies       = [] #The array where all energy records are stored
 for i in range(len(Temperature)):
 	
 	ising = Ising.Ising(15,Temperature[i])
-	ising.MontSim()
-	Magnetizations.append(ising.Abs_Tot_Magn())
-	Energies.append(np.abs(ising.Tot_Energy()))
+	ising.MontSim()#We run a Montecarlo simulation for a specific temperature
+	Magnetizations.append(ising.Abs_Tot_Magn())#we fill the Magnetizations array
+	Energies.append(np.abs(ising.Tot_Energy()))#We fill the Energies array
 	
-
+"""The graphics are plotted below: at first we take a glance at the magnetization
+vs temperature graphic from which we can roughly harvest an estimation for Tc.
+The same can be done for the energy-temperature relationship."""
 plt.scatter(Temperature,Magnetizations)
 plt.title("Magnetization vs Temperature")
 plt.xlabel("Temperature(K)")
