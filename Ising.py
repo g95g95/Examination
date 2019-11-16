@@ -20,7 +20,7 @@ class Ising:
 	
 	def __init__(self,dimension,T=.1):
 		self.dimension = dimension
-		self.lattice  = np.array([[rd.choice([-0.5,0.5]) for i in range(dimension)]for j in range(dimension)])
+		self.lattice  = np.array([[rd.choice([-1,1]) for i in range(dimension)]for j in range(dimension)])
 		self.T = T
 
 	def Make_move(self):
@@ -58,10 +58,16 @@ class Ising:
 				if self.lattice[i,j]>0:
 					Lattice[i][j]=Label(bg='black',width=2,height=2)
 					Lattice[i][j].grid(row=i,column=j)
-		mainloop()			
+		mainloop()
+			
+	def show_evolution(self):
+		for i in range(10001):
+			self.Make_move()
+			if (i%2000 == 0):
+				self.print_lattice_GUI()
 				
 	def Abs_Tot_Magn(self):
-		return np.abs(2*sum(sum(self.lattice))/(self.dimension*self.dimension))
+		return np.abs(sum(sum(self.lattice))/(self.dimension*self.dimension))
 	
 	def Tot_Energy(self):
 		Tot_Energy = 0
@@ -69,34 +75,14 @@ class Ising:
 			for y in range(self.dimension):
 				single_spot_energy = self.lattice[(x+1)%self.dimension,y]+self.lattice[x,(y+1)%self.dimension]+self.lattice[(x-1)%self.dimension,y]+self.lattice[x,(y-1)%self.dimension]
 				Tot_Energy        += single_spot_energy
-		return Tot_Energy/4.		
+		return abs(Tot_Energy/4.)		
 				
-	def MontSim (self,Nsteps=100000):
+	def MontSim (self,Nsteps=20000):
 		for i in range(Nsteps):
 			self.Make_move()
 			
-			procedure = Nsteps/(i+1)	
-			if procedure  in list(range(100)):
-				print(self.Abs_Tot_Magn())
-				print("{:.2f}".format(float(i/Nsteps)*100),'%\n')
-				
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+			#procedure = Nsteps/(i+1)	
+			#if procedure  in list(range(100)):
+				#print(self.Abs_Tot_Magn())
+				#print("{:.2f}".format(float(i/Nsteps)*100),'%\n')
 				

@@ -8,14 +8,8 @@ Created on Wed Oct 30 17:12:33 2019
 
 import numpy as np
 Results2018={'Movimento 5 stelle':0.327,'Centrosinistra':0.22,'Centrodestra':0.37,'LeU':0.03}
-ResultsHyp ={'Movimento 5 stelle':0.18,'Centrosinistra':0.20,'Lega':0.35,'Centrodestra':0.15}
-
-
-
-
-import numpy as np
-Results2018={'Movimento 5 stelle':0.327,'Centrosinistra':0.22,'Centrodestra':0.37,'LeU':0.03}
-ResultsHyp ={'Movimento 5 stelle':0.18,'Centrosinistra':0.20,'Lega':0.35,'Centrodestra':0.15}
+ResultsHyp1 ={'Movimento 5 stelle':0.18,'Centrosinistra':0.20,'Lega':0.35,'Centrodestra':0.15}
+ResultsHyp2 ={'Centrosinistra':0.38,'Centrodestra':0.52}
 Seats2018  ={'Movimento 5 stelle':221,'Centrosinistra':109,'Centrodestra':260,'LeU':22} #excluding abroad seats
 
 
@@ -32,7 +26,7 @@ def max_key(d):
         
 
         
-def Fill_Seats(weight_maj = 0.37,weight_prop = 0.61,Results = ResultsHyp):   
+def Fill_Seats(weight_maj = 0.37,weight_prop = 0.61,Results = Results2018):   
     seats = {key:int(Results[key]*635*weight_prop)+int(Results[key]*(1-sum(list(Results.values())))) for key in list(Results.keys())}
     for i in range (int(635*weight_maj)):
         Resultscopy = Results.copy()
