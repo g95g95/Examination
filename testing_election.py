@@ -24,20 +24,14 @@ def test_Number_iterations(Nsteps = 10000):
 def test_max_key(d = Results2018):
 	"""This method returns the key for the highest value stored in a dictionary,
 	taking the Results2018 dict as a parameter  """
-	max_key = ''
-	max_value = 0
-	for key in list(d.keys()):
-		if d[key]>max_value:
-			max_key = key
-			max_value = d[key]
-	assert max_key == 'Centrodestra'
+	assert Electoral_Montecarlo.max_key() == 'Centrodestra'
 	
 	
 def test_simulation(a = rd.choice(list(Seats2018.keys())),d = Seats2018):
 	"""This method tests the accuracy of the simulation(with a gap of 10 deputates)
 	for each main party"""
 	Simulation = Electoral_Montecarlo.Complete_Simulation()
-	assert np.abs(Simulation[a] - Seats2018[a])<10 #There's a little difference because of different method ripartition for the proportional part
+	assert np.abs(Simulation[a] - d[a])<10 #There's a little difference because of different method ripartition for the proportional part
 
 def test_winning_seats(d = Results2018):
 	"""This test function shows it is impossible for a simulation to provide a
