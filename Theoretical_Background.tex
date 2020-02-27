@@ -45,6 +45,8 @@ The algorithm will proceed as follows:
 	\item \textbf{Accept or refuse the move }: The move we proposed will be accepted or refused according to the Metropolis algorythm. If dE<0 the move will be always accepted since it reduces the energy of the system. if dE>0 we can accept the move only if a generic random number between 0 and 1 is lesser than $e^{-dE/k_{B}T}$ being k the Boltzman constant which will be set to 1.
 \end{itemize}
 Of course we are going to loop over a consistent number of steps and continously repeat the last three points.\\
+\section*{How the repository works}
+
 \chapter*{Metropolis algorythm applied to electoral laws}
 A good electoral law should be a decent balancement of both representivity and governability. The first principle  can lead to proportional laws, the second to majoritary law. So in the last years electoral laws mixing these two features were experimented all over european democracies.\\
 Let's take into account the current italian electoral law and let's focus only on the election of "La Camera dei Deputati". There are 630 deputates in the "small chamber". The 61$\% $ is elected in a proportional way(party x gets N\% votes, it gets 0.N*0.61*seats). The remaining 37\% is elected thorough the collegia mechanism. This means the italian territory is split in 212 electoral collegia. In each collegium different electoral coalitions(or single parties) fight to "win that collegium". In fact, if X coalition/party reaches the highest percentage in the land which represents the collegium it will take that seat in the Parliament.\\
@@ -55,7 +57,7 @@ If we repeat this procedure over all the collegia, eventually we will be able to
 Of course there are many flaws to this algorithm which is totally unable to foresee very localized electoral exploits of some regional parties. So if a party gets the 1\% on national scale and in a specific region with 3 collegia it has the 50\% it will get 3 seats and no way to foresee that. Actually if we run very long simulations (more than a million times) a single anomalous result like that can be reproduced.\\
 The algorithm might also be used to highlight some shortcoming of the specific electoral law we're dealing with. It might happen(it sounds absurd) that two parties obtaining almost the same results on national scale will have a completely different assignment of seats. Montecarlo could see that. In fact it is provided an histogram in the graphic part in which the distribution of different electoral simulation for each party are confronted. There is a slightly possibility that a party which got a lesser result could benefit a larger assignment of seats(overlapping between the tails'distributions).\\
 The appropriate number of steps for each simulation can be determined by knowing how many steps need to be performed to compute pi by exploiting Montecarlo methods.\\
-
-
+\section*{How the repository works}
+in the file \textit{\textbf{Electoral$\_$Montecarlo.py}}, all the most important functions are defined.
 
 \end{document}
