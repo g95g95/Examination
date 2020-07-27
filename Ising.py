@@ -6,10 +6,7 @@ Created on Wed Nov 13 14:06:57 2019
 """
 
 # -*- coding: utf-8 -*-
-"""
-Created on Tue Oct 15 14:01:39 2019
-@author: Jonathan Frassineti
-"""
+
 import random as rd
 import numpy as np
 from numpy.random import rand
@@ -84,7 +81,7 @@ class Ising:
 				Tot_Energy        += single_spot_energy
 		return abs(Tot_Energy/4.)		
 				
-	def MontSim (self,Nsteps=20000):
+	def MontSim (self,Nsteps=2000):
 		for i in range(Nsteps):
 			self.Make_move()
 			"""This is the core of the program. We run a simulation over a suffi

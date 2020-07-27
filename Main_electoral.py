@@ -8,7 +8,13 @@ import numpy as np
 import Electoral_Montecarlo
 import matplotlib.pylab as plt
 
-data = (Electoral_Montecarlo.Complete_Simulation())
+
+Results2018={'Movimento 5 stelle':0.327,'Centrosinistra':0.22,'Centrodestra':0.37,'LeU':0.03}
+Seats2018  ={'Movimento 5 stelle':221,'Centrosinistra':109,'Centrodestra':260,'LeU':22} #excluding abroad seats
+
+
+
+data = (Electoral_Montecarlo.Complete_Simulation(635,Results2018,0.61,0.37))
 
 
 bins = np.linspace(0,300,100)

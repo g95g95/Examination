@@ -28,7 +28,7 @@ def test_Mont_Move(ising = Ising.Ising(15)):
 	assert (ising.Abs_Tot_Magn()>=initial_magnetization and ising.Tot_Energy()>=initial_energy)
 
 
-def test_Simulation(ising = Ising.Ising(15,.1)):
+def test_Simulation(ising = Ising.Ising(5,.1)):
 	"""This routine test is used to verify wether a very low temperature system
 	is going to reach the magnetic order after a significant number of iterations"""
 	ising.MontSim()
